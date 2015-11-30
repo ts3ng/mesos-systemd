@@ -39,8 +39,7 @@ ExecStart=/usr/bin/sh -c "source /etc/profile.d/etcdctl.sh && \
     --log_dir=/var/log/mesos \
     --master=zk://`etcdctl get /environment/ZOOKEEPER_ENDPOINT`/mesos \
     --work_dir=/var/lib/mesos/slave \
-    --cgroups_enable_cfs \
-    --docker_mesos_image=$($IMAGE)"
+    --cgroups_enable_cfs"
 
 ExecStop=-/usr/bin/docker stop mesos_slave
 
